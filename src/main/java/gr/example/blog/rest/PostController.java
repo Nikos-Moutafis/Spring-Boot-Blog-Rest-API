@@ -42,10 +42,10 @@ public class PostController {
         this.mapper = mapper;
     }
 
-    @Operation( summary = "Create a post")
     @SecurityRequirement(
             name = "Bear Authentication"
     )
+    @Operation( summary = "Create a post")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Post created",
                     content = { @Content(mediaType = "application/json",
@@ -95,9 +95,6 @@ public class PostController {
         return postService.getAllPosts(page, size, sortBy, sortDir);
     }
 
-    @SecurityRequirement(
-            name = "Bear Authentication"
-    )
     @Operation(summary = "Get a Post by id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Post Found",
